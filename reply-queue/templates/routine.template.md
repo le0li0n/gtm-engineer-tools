@@ -45,8 +45,11 @@ mcp__<sequencer>__search_campaign_leads, mcp__<sequencer>__search_contacts,
 # write drafts — the point of the thing
 mcp__<mail>__create_draft,
 
-# post and read back the queue
-mcp__<chat>__send_message, mcp__<chat>__read_channel,
+# write drafts — see the mail line above; list them first so none is stacked
+mcp__<mail>__list_drafts,
+
+# post the queue, and check whether a card already exists
+mcp__<chat>__send_message, mcp__<chat>__search, mcp__<chat>__read_channel,
 mcp__<chat>__read_thread, mcp__<chat>__get_reactions
 ```
 
@@ -67,4 +70,4 @@ The first run should either post cards or post nothing. Two failure modes to wat
 
 **It posts a "nothing to report" message.** The skill says not to; if you see one, the prompt has grown logic of its own. Cut it back to the three sentences.
 
-**It posts cards for people already handled.** The surface is the state — the run reads the last 7 days back before posting. If it's duplicating, the read tools aren't in the allow-list, and it's flying blind rather than failing loudly.
+**It posts cards for people already handled.** The surface is the state, and the run searches it for each person before posting. If it's duplicating, the search tool isn't in the allow-list and the run is falling back to reading the channel, which stops working as soon as the cards fill one page — the failure compounds silently, so check this on day one rather than waiting to notice.
