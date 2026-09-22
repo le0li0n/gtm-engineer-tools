@@ -26,7 +26,7 @@ Then list the MCP connectors actually reachable in this session. That list decid
 Six questions, one at a time. Skip any the connector check already answered.
 
 1. **Where should the queue post?** A Slack DM to yourself is the default; a channel works if others act on replies too. Email if there's no chat connector. Get the actual id or address — don't proceed on "my Slack."
-2. **Which mailbox do your replies land in?** This is the one that decides whether drafts go into a drafts folder or come back as paste-text. If the connected mailbox isn't the one their campaigns send from, say so plainly now rather than letting them discover it on the first run.
+2. **Which mailbox do your replies land in?** This is the one that decides whether drafts go into a drafts folder or come back as paste-text. If the connected mailbox isn't the one their campaigns send from, don't conclude anything yet: search it for a reply to one of those campaigns. Forwarding and aliases are common enough that the answer is usually yes, and one confirmed thread turns every campaign's replies into real drafts. Say which way it went, either way, rather than letting them discover it on the first run.
 3. **What's in flight right now?** Get names, not ids — the ids come from the sources in step 3.
 4. **For each campaign: what did it ask for?** One line each.
 5. **What does a yes get?** Per campaign. This is the part people skip and it's the part that makes the drafts usable. If they can't answer, the campaign goes in as `draft` status rather than `live`.

@@ -37,6 +37,8 @@ window_hours: 3                # reply lookback, ≥ the routine interval
 
 **`draft_mailbox` is the one that decides how good this feels.** Connect the mailbox your replies actually land in. A campaign that sends from an address you haven't connected can still be *read* through the sequencer, but its drafts fall back to paste-text, which is a worse experience and the reason people abandon tools like this.
 
+Before settling for that fallback, check where the mail actually arrives. Forwarding and aliases are common, the sending address is often not the receiving one, and a single forward into the connected mailbox turns every campaign's replies into real drafts. Search it for one known reply rather than reasoning from which address the campaign sends from.
+
 ---
 
 ## Step 1 — Reconcile the registry against the sources
@@ -50,6 +52,8 @@ Any **running** campaign the source knows about and the registry does not goes a
 Run `date -u` first. Two sets: everything inside `window_hours` is **new**; everything already flagged as awaiting your reply is **waiting**.
 
 **Mail adapter.** For registry rows naming a mail search, run it with a recency filter for the new set and without for the waiting set. Read the whole thread before judging the reply.
+
+**Look for the thread of every mail reply, whichever source surfaced it.** Search the connected mailbox for the sender's address, not for the mailbox the campaign sends from: aliases and forwarding mean a reply usually arrives in a mailbox other than the one addressed, and a campaign whose sending address you haven't connected often still lands in one you have. Two things follow from finding the thread. The draft goes on it, instead of falling back to paste-text (step 4). And **a thread whose last message is yours is answered** — if the reply was handled in the mailbox, the sequencer cannot see it and will go on flagging your turn for days. Check the mailbox before believing the flag.
 
 **Sequencer adapter.** Per live campaign, pull inbox conversations filtered to that campaign's ids. Page through; a busy week is a hundred-plus conversations. Three traps, all of which have cost real replies:
 
@@ -81,7 +85,7 @@ Voice: whatever `voice:` points at, if anything.
 
 **Where the draft goes:**
 
-- **Mail, in the connected mailbox** → write it into the drafts folder as a reply on the thread, same subject, same recipient. Link it on the card. This is the primary path and the reason to connect the right mailbox.
+- **Mail, in the connected mailbox** → write it into the drafts folder as a reply on the thread, same subject, same recipient. Link it on the card. This is the primary path and the reason to connect the right mailbox. **List the drafts for that recipient first**: if one already exists on the thread, leave it and card the link, because a stack of near-identical drafts is the mailbox version of a duplicate card.
 - **Everything else** → a fenced block on the card, so it copies clean.
 
 ## Step 5 — Nudges
@@ -94,7 +98,13 @@ Do not nudge anyone whose sequence still has steps pending. The sequencer will.
 
 **One card per person**, so each can be ticked off independently. A single long message with the links somewhere else is the layout to avoid — it disconnects the reply from the thing it's replying to.
 
-**The surface is the state.** Before posting, read the last 7 days of it. A card already exists for someone if a message there carries their profile URL, or their name and campaign. Post a card only when there is none, or when they've replied again since the existing card's timestamp — then the new card opens with "New since the last card:". Cards that have been reacted to are done; don't repost them, and don't post "still waiting" reminders for cards without a reaction.
+**The surface is the state, and it is checked one person at a time.** Before posting a card, search the surface for that person: their email address, or their profile URL when the source has no address for them, restricted to the surface and sorted newest first. The **anchor** is their latest message for a reply, or yours for a nudge. A result posted after the anchor means the card exists: post nothing for them. None, and the card goes up; if an older card exists, it opens with "New since the last card:". Cards that have been reacted to are done; don't repost them, and don't post "still waiting" reminders for cards without a reaction.
+
+**Do not do this by reading the surface back.** It is the obvious implementation and it fails in a way that hides itself. A channel read returns one page — a hundred messages on Slack — and once a few days of cards fill that page, the earlier card for a person sits behind it, invisible. The run posts a second card. That card pushes someone else's off the page, so the next run duplicates them too, and the queue degrades a little further every run while each individual run looks like it worked. In the case that produced this rule, one reply was carded twenty times over five days, each with a differently worded draft, before a person noticed. A search asks the one question that matters, returns a line or two, and does not get worse as the surface fills.
+
+**If the search fails, post no cards on that run** and say so in one line. A queue that is an hour late costs less than a queue nobody can read.
+
+Reading the surface back is still how a run finds thread replies and a `report` request — with a 48-hour window, so the page stays small.
 
 The first run of the day posts a header: how many cards went up since yesterday's, and how many from the last 7 days are still unticked. Other runs post only new cards, and nothing at all if there are none.
 
@@ -131,6 +141,8 @@ Send from: LinkedIn
 
 Notes: the tag; the lead to end; the thing that's your call.
 ````
+
+**Cards are rendered by [`scripts/card.py`](../../scripts/card.py), not typed.** Write them as JSON (the fields are in the script's docstring), run `python3 scripts/card.py cards.json`, and post each block between the `===END CARD===` markers verbatim. It picks the shape from the fields, refuses a card that both links a draft and fences it, and owns every rule below. The rules stay here because a person maintaining the script needs to know why it does what it does — not so a run can follow them by hand.
 
 **Four chat-rendering rules, all learned the hard way.**
 
