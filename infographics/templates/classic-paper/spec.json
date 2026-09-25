@@ -1,0 +1,24 @@
+{
+  "_about": "Keeps the brand's own classic styles (paper, exhibit, navy from brand.tokens_css) tested. Re-render after any brand-token change.",
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "stats",
+  "preset": "paper",
+  "size": "square",
+  "eyebrow": "Classic brand style",
+  "title": "What we [[measured]]",
+  "data": {
+    "pick": 3,
+    "stats": [
+      { "value": "5", "label": "lorem ipsum studied" },
+      { "value": "129", "label": "dolor analyzed" },
+      { "value": "91", "label": "sit amet saved" },
+      { "value": "1", "label": "already runs this", "sub": "Consectetur, 255K" }
+    ]
+  },
+  "note": "Source: lorem ipsum.",
+  "variants": [
+    { "name": "exhibit", "preset": "exhibit" },
+    { "name": "navy", "preset": "navy" }
+  ]
+}

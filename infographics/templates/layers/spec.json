@@ -1,0 +1,22 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "layers",
+  "preset": "pop",
+  "size": "portrait",
+  "eyebrow": "LOREM ARCHITECTURE",
+  "title": "The 5-layer [[lorem engine]]",
+  "subtitle": "From dolor signal to sit amet record, fully automated.",
+  "byline": false,
+  "data": {
+    "layers": [
+      { "icon": "database", "name": "System of record", "body": "Every lorem, ipsum and reply writes back to one dolor, automatically.", "tools": ["Recordly"] },
+      { "icon": "send", "name": "Action layer", "body": "Route enriched contacts to the right channel, at volume, on infrastructure that lands.", "tools": ["Sendwise", "Hypero", "Linkpath"] },
+      { "icon": "filter", "name": "Data layer", "body": "Turn raw signals into verified emails and firmographics with waterfall enrichment.", "tools": ["Enrichly", "Datamint", "Verifio", "Phonebase"] },
+      { "icon": "radar", "name": "Signal layer", "body": "Detect hiring surges, funding rounds and engagement before anyone else sees them.", "tools": ["Signalr", "Hiretrack", "Fundwatch"] },
+      { "icon": "workflow", "name": "Orchestration layer", "body": "Wires the four layers together and retries through errors until it runs on its own.", "tools": ["Agentic", "Flowbase", "Retrio"] }
+    ],
+    "strip": { "title": "The stack behind the five layers" }
+  },
+  "note": "Source: lorem ipsum architecture, Sept 2026."
+}

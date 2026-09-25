@@ -1,0 +1,20 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "tree",
+  "preset": "midnight",
+  "size": "portrait",
+  "eyebrow": "LOREM DECISION TREE",
+  "title": "Should you [[lorem ipsum]] yet?",
+  "subtitle": "Answer three questions before you spend a dollar.",
+  "data": {
+    "root": { "q": "Do you have 10 paying lorem customers?", "icon": "users", "branches": [
+      { "label": "No", "node": { "q": "Can you name the ipsum they share?", "branches": [
+        { "label": "No", "node": { "outcome": "Talk to 20 more users", "note": "Find the pattern first", "tone": "bad", "icon": "alert" } },
+        { "label": "Yes", "node": { "outcome": "Sell to that segment only", "note": "Win 10 before widening", "tone": "neutral", "icon": "target" } } ] } },
+      { "label": "Yes", "node": { "q": "Did most find you by dolor?", "branches": [
+        { "label": "Yes", "node": { "outcome": "Double down on dolor", "note": "Pour fuel on what works", "tone": "good", "icon": "rocket" } },
+        { "label": "No", "node": { "outcome": "Test one new channel", "note": "Six weeks, one metric", "tone": "neutral", "icon": "flag" } } ] } } ] }
+  },
+  "note": "Source: lorem ipsum playbook."
+}

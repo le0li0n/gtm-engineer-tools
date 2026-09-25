@@ -1,0 +1,25 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "versus",
+  "preset": "ocean",
+  "size": "portrait",
+  "eyebrow": "WHAT WE GOT WRONG",
+  "title": "8 things we believed about [[lorem]]",
+  "subtitle": "And what the data actually said.",
+  "data": {
+    "left_title": "We believed",
+    "right_title": "The data said",
+    "pairs": [
+      ["More lorem posts means more reach", "Fewer, sharper posts won"],
+      ["Ipsum buyers read the website first", "They asked a peer first"],
+      ["Dolor needs a big launch", "Six small launches beat one big one"],
+      ["Gated assets capture better leads", "Ungated got 4× the replies"],
+      ["Sit amet is a top-of-funnel channel", "It closed deals mid-funnel"],
+      ["Video needs production value", "A phone recording did better"],
+      ["Consectetur scales with headcount", "It scaled with one system"],
+      ["Attribution tells you what works", "Asking customers told us"]
+    ]
+  },
+  "note": "Source: lorem ipsum internal review."
+}

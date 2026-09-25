@@ -1,0 +1,24 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "levels",
+  "preset": "ocean",
+  "size": "portrait",
+  "eyebrow": "LOREM MATURITY",
+  "title": "Three levels of [[lorem ipsum]]",
+  "subtitle": "Level 1 takes an afternoon. Level 3 runs while you sleep.",
+  "data": {
+    "levels": [
+      { "name": "Manual lorem", "tag": "Week 1", "summary": "One person, one tool, every step by hand.",
+        "rows": [{ "label": "How", "text": "Type `/lorem` in any chat and paste the dolor." }, { "label": "Who controls", "text": "You decide every step, in order." }, { "label": "When it wins", "text": "Testing an idea before you commit." }],
+        "flow": ["/lorem this week", "Loremly", "draft.docx"] },
+      { "name": "Scheduled ipsum", "tag": "Month 1", "summary": "The same steps, on a timer, with your review.",
+        "rows": [{ "label": "How", "text": "Schedule the skill every weekday at 9am." }, { "label": "Who controls", "text": "The schedule starts it; you approve it." }, { "label": "When it wins", "text": "Anything you already do weekly." }],
+        "flow": ["Weekdays 09:00", "Ipsum.ai", "batch ready"] },
+      { "name": "Autonomous dolor", "tag": "Quarter 1", "summary": "A pipeline that runs in the cloud, laptop closed.",
+        "rows": [{ "label": "How", "text": "One command deploys it to the cloud runner." }, { "label": "Who controls", "text": "A script holds the loops and checks." }, { "label": "When it wins", "text": "Scale across dozens of accounts." }],
+        "flow": ["daily 7am", "Dolorhub", "done by 8am"] }
+    ]
+  },
+  "note": "Source: lorem ipsum field notes, Sept 2026."
+}

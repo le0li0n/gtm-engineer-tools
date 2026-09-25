@@ -1,0 +1,11 @@
+/* Neutral fallback tokens for the classic presets (paper, exhibit, navy) when a repo's
+   .infographic.json doesn't point brand.tokens_css at its own design-system file.
+   Same variable names a brand token file should define. */
+:root {
+  --uv-paper: #ECEAE5; --uv-paper-2: #E0DDD6; --uv-bone: #F5F3EF; --uv-white: #FFFFFF;
+  --uv-ink: #0E0E12; --uv-ink-soft: #2C2C33; --uv-ink-muted: #6D6B70; --uv-line: #CBC8C1;
+  --uv-ink-bg: #111B3F; --uv-ink-bg-2: #0A1130; --uv-ink-line: #243060; --uv-ink-fg: #ECEAE5; --uv-ink-fg-muted: #93A0C8;
+  --uv-blue: #2F5BFF; --uv-blue-deep: #111B3F; --uv-blue-soft: #DCE5FF; --uv-taupe: #A39A92; --uv-taupe-soft: #CAC2BA;
+  --uv-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --uv-mono: 'SF Mono', SFMono-Regular, Menlo, monospace;
+}

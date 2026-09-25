@@ -1,0 +1,60 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "workflow",
+  "preset": "electric",
+  "size": "portrait",
+  "eyebrow": "LOREM WORKFLOW",
+  "title": "From [[lorem call]] to published post in 5 steps",
+  "subtitle": "What runs where, and what comes out the other end.",
+  "data": {
+    "steps": [
+      {
+        "title": "Capture the lorem",
+        "body": "Record every ipsum call; the transcript lands automatically.",
+        "flow": [
+          "30-min call",
+          "Loremly",
+          "transcript.md"
+        ]
+      },
+      {
+        "title": "Mine it for dolor",
+        "body": "Pull repeated questions, objections and `customer phrasing`.",
+        "flow": [
+          "transcript.md",
+          "Sitflow",
+          "3 topic seeds"
+        ]
+      },
+      {
+        "title": "Draft three versions",
+        "body": "Write in the founder's voice from the seed, never from scratch.",
+        "flow": [
+          "topic seed",
+          "Ametly",
+          "3 drafts"
+        ]
+      },
+      {
+        "title": "Check before posting",
+        "body": "No invented numbers, no customer names, one clear claim.",
+        "flow": [
+          "draft",
+          "Adipisc",
+          "pass / fix"
+        ]
+      },
+      {
+        "title": "Publish and reply",
+        "body": "Schedule through the official API; answer comments by hand.",
+        "flow": [
+          "final post",
+          "Elitware",
+          "live post"
+        ]
+      }
+    ]
+  },
+  "note": "Source: lorem ipsum operating model, Sept 2026."
+}

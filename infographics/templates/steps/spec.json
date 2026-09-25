@@ -1,0 +1,20 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "steps",
+  "preset": "pop",
+  "size": "portrait",
+  "eyebrow": "LOREM HOW-TO",
+  "title": "Six steps to a [[lorem]] that works",
+  "data": {
+    "steps": [
+      { "title": "Load the lorem files", "body": "A reference file with every ipsum value, plus five finished examples." },
+      { "title": "Plan before dolor", "body": "Outline the structure first. Nothing ships until the plan reads right." },
+      { "title": "Hand over the exact copy", "body": "Every sit and amet comes from a copy file, never guessed." },
+      { "title": "Show a past consectetur", "body": "It copies the structure; the brand file handles the rest." },
+      { "title": "Render, check, compare", "body": "Repeat until the output matches the reference." },
+      { "title": "Turn repeat mistakes into rules", "body": "Anything that goes wrong twice is written down for good." }
+    ]
+  },
+  "note": "Source: lorem ipsum playbook."
+}

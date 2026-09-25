@@ -1,0 +1,16 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "split",
+  "preset": "midnight",
+  "size": "portrait",
+  "eyebrow": "LOREM VS IPSUM",
+  "title": "Lorem ≠ [[ipsum dolor]]",
+  "data": {
+    "divider": "≠",
+    "pick": "right",
+    "left": { "label": "The old way", "title": "Lorem ipsum", "points": ["Boosts dolor, so the post travels", "Every request is a manual sit", "Stay under about 100 amets a day", "Run it once or twice a month", "Still works, but less each year"] },
+    "right": { "label": "The new way", "title": "Dolor sit amet", "points": ["No limits, no restriction risk", "Capture the lead on your own site", "Joke about the gate, still get replies", "Every graphic carries its own link", "Engagers become an audience later"] }
+  },
+  "note": "Source: lorem ipsum research."
+}

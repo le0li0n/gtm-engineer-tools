@@ -1,0 +1,12 @@
+{
+  "name": "midnight",
+  "label": "Midnight — dark navy card that stands out in a light feed",
+  "mode": "dark",
+  "colors": {
+    "bg": "#0B1022", "grid": "rgba(140,160,255,0.07)", "text": "#F4F5FA", "text_soft": "#C9CDE0", "muted": "#8C93B3",
+    "line": "#222A4A", "card": "#141B36", "card_line": "#26305A", "chip": "#1B2344", "code_bg": "#0B1022", "code_text": "#E6E8F5",
+    "accent1": "#FF7A59", "accent2": "#5AA9FF", "accent3": "#3DDC97", "accent4": "#B794FF", "accent5": "#FFC53D",
+    "keyword": "#FF7A59", "badge_text": "#0B1022", "label_bg": "#222C57", "label_text": "#FFFFFF",
+    "good": "#3DDC97", "good_soft": "rgba(61,220,151,0.12)", "bad": "#FF6B6B", "bad_soft": "rgba(255,107,107,0.12)"
+  }
+}

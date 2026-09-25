@@ -1,0 +1,12 @@
+# Words the macOS dictionary doesn't know but the graphics use. One per line, case-insensitive.
+# Add real names and product terms here; never add a misspelling to silence the check.
+Substack
+HubSpot
+Apify
+Canva
+Miro
+Codex
+Gemini
+infographic
+infographics
+unbundling

@@ -1,0 +1,69 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "matrix",
+  "preset": "midnight",
+  "size": "portrait",
+  "eyebrow": "LOREM TOOLS",
+  "title": "[[Loremly]] vs Ipsum.ai vs Dolorhub",
+  "subtitle": "Which one to pick, and when.",
+  "data": {
+    "columns": [
+      {
+        "name": "Loremly"
+      },
+      {
+        "name": "Ipsum.ai"
+      },
+      {
+        "name": "Dolorhub"
+      }
+    ],
+    "pick": 0,
+    "label_width": 180,
+    "rows": [
+      {
+        "label": "Price",
+        "cells": [
+          "**Free**",
+          "$20/mo",
+          "$49/mo"
+        ],
+        "center": true
+      },
+      {
+        "label": "Best for",
+        "cells": [
+          "Lorem ipsum dolor sit amet",
+          "Consectetur adipiscing",
+          "Sed do eiusmod tempor"
+        ]
+      },
+      {
+        "label": "Strength",
+        "cells": [
+          "Fast and simple to start",
+          "Deep dolor integrations",
+          "Scales across teams"
+        ]
+      },
+      {
+        "label": "Limit",
+        "cells": [
+          "No team features",
+          "Steeper learning curve",
+          "Overkill under 10 people"
+        ]
+      },
+      {
+        "label": "Pick when",
+        "cells": [
+          "You need it **today**",
+          "You live in **sit amet**",
+          "You run **five brands**"
+        ]
+      }
+    ]
+  },
+  "note": "Prices as listed, Sept 2026."
+}
