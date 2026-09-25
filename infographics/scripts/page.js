@@ -140,8 +140,8 @@
       const el = t.parentElement;
       if (el.closest('svg')) continue;
       const fs = parseFloat(getComputedStyle(el).fontSize);
-      // Source lines and the footer are meant to be small (an on-image method note, like
-      // Adam Schoenfeld's); they get a lower floor than content text.
+      // Source lines and the footer are meant to be small (an on-image method note); they get
+      // a lower floor than content text.
       if (el.closest('[data-meta]')) { if (fs < minMeta) minMeta = fs; }
       else if (fs < minFont) { minFont = fs; minFontText = t.textContent.trim().slice(0, 40); }
       range.selectNodeContents(t);

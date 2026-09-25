@@ -59,6 +59,8 @@ Each has a placeholder `spec.json` and a rendered `preview.png` in `templates/`,
 
 Nothing brand-specific lives in the plugin. `.infographic.json` at your repo root sets the author, URL, headshot, wordmarks, output folder and style rotation. Color kits are small JSON files (`styles/README.md`); add your own folder of them and they join the rotation. `config.example.json` shows every field.
 
+The five built-in kits are a starting point, and everyone who installs the plugin gets the same five. Planned for v2: generate a unique set of kits for each user from their brand, so no two feeds share a look.
+
 ## Rules that came out of things going wrong
 
 `RULES.md` is the list, and it grows. A few of them:

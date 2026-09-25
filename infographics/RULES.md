@@ -1,10 +1,10 @@
 # infographic-render — learned rules
 
-Rules this skill has earned. Read before writing a spec; add to it when the same mistake happens twice (Charlie Hills' rule: a mistake made twice becomes permanent). Each rule says what went wrong, and the fix.
+Rules this skill has earned. Read before writing a spec; add to it when the same mistake happens twice (a mistake made twice becomes permanent). Each rule says what went wrong, and the fix.
 
 ## Copy
 
-1. **The headline states the finding, not the topic.** "The SaaSpocalypse was already fading", not "SaaSpocalypse trend". A reader who never opens the caption should still get the point. (All five creator studies.)
+1. **The headline states the finding, not the topic.** "The SaaSpocalypse was already fading", not "SaaSpocalypse trend". A reader who never opens the caption should still get the point.
 2. **One highlighted word or short phrase per title**, and it is the idea the post teaches. Mark it `[[like this]]`. Never highlight a whole title.
 3. **Every number traces to a source**, stated in `note` on the image. No source, no number. Estimates say so on the graphic.
 4. **Reword before whitelisting.** When the spellchecker flags a real-but-obscure word ("ownable"), prefer plainer copy over adding it to `wordlist.txt`. Whitelist only names and product terms.

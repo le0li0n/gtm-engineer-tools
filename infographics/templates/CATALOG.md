@@ -46,7 +46,6 @@ Sizes are for a 1080px-wide canvas at 100% text; the renderer fits text between 
 **Type** title 70 · layer name 24 · sentence 17.5 · tool labels 13.
 **Text vs image** about 50 / 50. Shape and logos do the work.
 **Budget** one sentence per layer, under about 16 words; up to 8 logos per layer.
-**Modeled on** Julien Lieben's "The 5-layer GTM engine" (ColdIQ).
 **Template** `layers/spec.json` → `layers/preview.png`
 
 ## tree — "Should you X?"
@@ -89,7 +88,6 @@ Sizes are for a 1080px-wide canvas at 100% text; the renderer fits text between 
 **Type** title 70 · group name 23 · group note 16 · chip label 17 · price 15.5 mono.
 **Text vs image** about 40 / 60. The logos are the content.
 **Needs** a logo file per tool (fetch with the `deck-graphics` logo chain); missing logos render as monograms.
-**Modeled on** Adam Schoenfeld · Julien Lieben · Charlie Hills
 **Template** `stack/spec.json` → `stack/preview.png`
 
 ## workflow — "From A to B in N steps"
@@ -100,7 +98,6 @@ Sizes are for a 1080px-wide canvas at 100% text; the renderer fits text between 
 **Type** title 70 · step title 25 · body 18 · flow chips 17 · badge 22.
 **Text vs image** about 70 / 30 (tool logos in the flow row).
 **Budget** step body under about 18 words; flow of exactly three items reads best.
-**Modeled on** Charlie Hills · Adam Schoenfeld · Maja Voje
 **Template** `workflow/spec.json` → `workflow/preview.png`
 
 ## resources — "Who to follow, read and listen to"
@@ -111,18 +108,16 @@ Sizes are for a 1080px-wide canvas at 100% text; the renderer fits text between 
 **Type** title 70 · section 24 · name 20 · handle 14 mono · why 16.
 **Text vs image** about 60 / 40 (faces carry it).
 **Needs** a real headshot or logo per item. Name people only with public information; for a VC, don't rank founders or portfolio companies.
-**Modeled on** Julien Lieben · Adam Schoenfeld
 **Template** `resources/spec.json` → `resources/preview.png`
 
 ## versus — "N mistakes, and the fix" / good vs bad
 
-**Use when** the reader should find themselves in one column. The format behind Will McTighe's five 100K-view posts (see his 2026-09-13 newsletter).
+**Use when** the reader should find themselves in one column. One of the most reliable formats in the feed.
 **Looks like** two colored banners (red ✕, green ✓) with a VS badge between them, then numbered rows: the mistake on a red tint, the fix on a green tint.
 **Layout** 8–12 pairs (10–11 is the sweet spot; under 8 looks thin, over 12 is unreadable on a phone).
 **Type** title 70 · banner 28 · row text 18 · row number 22.
 **Text vs image** about 95 / 5. The two colors are the visual.
 **Budget** each side under about 10 words; mistakes must be ones the audience actually makes.
-**Modeled on** Charlie Hills · Maja Voje
 **Template** `versus/spec.json` → `versus/preview.png`
 
 ## levels — "Three levels of X"
@@ -132,7 +127,6 @@ Sizes are for a 1080px-wide canvas at 100% text; the renderer fits text between 
 **Layout** 3 bands (2–4 works).
 **Type** title 70 · big number 54 · level name 25 · row label 13.5 mono · row text 17.
 **Text vs image** about 75 / 25.
-**Modeled on** Charlie Hills · Maja Voje
 **Template** `levels/spec.json` → `levels/preview.png`
 
 ## cheatsheet — "N prompts / tips / rules to save"
@@ -142,7 +136,6 @@ Sizes are for a 1080px-wide canvas at 100% text; the renderer fits text between 
 **Layout** 8–16 items in 2 columns (3 columns for very short items).
 **Type** title 70 · item title 19 · item body 16 · badge 19.
 **Text vs image** about 95 / 5. Density is the point; make the eyebrow "SAVE THIS".
-**Modeled on** Maja Voje · Charlie Hills
 **Template** `cheatsheet/spec.json` → `cheatsheet/preview.png`
 
 ## bento — "Everything that changed"
@@ -152,18 +145,16 @@ Sizes are for a 1080px-wide canvas at 100% text; the renderer fits text between 
 **Layout** 4–7 cards; one `wide`.
 **Type** title 70 · big number 46 · heading 22 · bullets 17.
 **Text vs image** about 85 / 15. Add a real photo or logo row for more pull.
-**Modeled on** Julien Lieben · Charlie Hills
 **Template** `bento/spec.json` → `bento/preview.png`
 
 ## comparison (`matrix`) — "X vs Y vs Z"
 
-**Use when** the reader is choosing between named things across the same criteria. Julien Lieben's best post by 3×.
+**Use when** the reader is choosing between named things across the same criteria. Often the best-performing format for tool choices.
 **Looks like** a header row of column cards (logos optional), a solid colored label column, and cells; the recommended column outlined; bold verdict words.
 **Layout** 3–4 columns; 5–7 rows; last row "Pick when".
 **Type** title 70 · column name 26 · label 21 · cell 22 (fitted).
 **Text vs image** about 90 / 10.
-**Budget** cells under about 12 words; facts must be current (stale model versions got called out in the comments on Julien's).
-**Modeled on** Julien Lieben
+**Budget** cells under about 12 words; facts must be current (stale versions get called out in the comments).
 **Template** `comparison/spec.json` → `comparison/preview.png`
 
 ## stats — "N numbers that say X"
@@ -174,7 +165,6 @@ Sizes are for a 1080px-wide canvas at 100% text; the renderer fits text between 
 **Type** title 70 · number 112 · label 27 · source 20.
 **Text vs image** about 80 / 20 (the numbers are the image).
 **Budget** every number needs its source on the card or in the note.
-**Modeled on** Adam Schoenfeld · Maja Voje
 **Template** `stats/spec.json` → `stats/preview.png`
 
 ## cycle — "The loop"
@@ -185,16 +175,15 @@ Sizes are for a 1080px-wide canvas at 100% text; the renderer fits text between 
 **Type** title 70 · stage title 29 · stage body 21 · center 40.
 **Text vs image** about 70 / 30 (the ring and arrows).
 **Budget** stage body under about 10 words.
-**Modeled on** Maja Voje · Adam Schoenfeld
 **Template** `cycle/spec.json` → `cycle/preview.png`
 
 ---
 
 ## Also in the library
 
-- **steps** (`steps/`): a numbered process, 3–7 steps, big numerals and one line each. Modeled on Maja Voje's cadence cards and Charlie Hills' how-tos.
-- **split** (`split/`): two approaches side by side with a ≠ between them, the better one outlined. Modeled on Maja Voje's ECP ≠ ICP.
-- **trend** (`trend/`): a number moving over time, endpoints labeled, an optional context strip. Modeled on Adam Schoenfeld's trend charts. Set `"time": true` for uneven dates.
+- **steps** (`steps/`): a numbered process, 3–7 steps, big numerals and one line each.
+- **split** (`split/`): two approaches side by side with a ≠ between them, the better one outlined.
+- **trend** (`trend/`): a number moving over time, endpoints labeled, an optional context strip. Set `"time": true` for uneven dates.
 - **classic-paper** (`classic-paper/`): not a type, a test. It renders the brand's own paper, exhibit and navy styles so a brand-token change shows up.
 
 ## Not built yet
@@ -207,4 +196,4 @@ Next up, seen in layouts that perform in the feed:
 - **snake**: a long numbered workflow that winds across rows from START to FINISH.
 - **Variants**: a winner column for `comparison`, a leaderboard panel beside `trend`, card and category-grid versions of `resources`.
 
-Also worth adding: **anatomy** (an annotated thing: a prompt, a profile, a post; Charlie Hills), **tier list / quadrant** **folder tree** **timeline / roadmap** **UI mock** of the tool being discussed and **carousel** cover + pages.
+Also worth adding: **anatomy** (an annotated thing: a prompt, a profile, a post), **tier list**, **folder tree**, **timeline / roadmap** **UI mock** of the tool being discussed and **carousel** cover + pages.
