@@ -1,0 +1,14 @@
+{
+  "name": "citrus",
+  "label": "Citrus — loud yellow, black ink, hard offset shadows",
+  "mode": "light",
+  "card_shadow": "5px 5px 0 #111111",
+  "card_border": "2.5px",
+  "colors": {
+    "bg": "#FFE45C", "grid": "rgba(0,0,0,0.07)", "text": "#111111", "text_soft": "#2B2B2B", "muted": "#5C5423",
+    "line": "#E6C93A", "card": "#FFFBE6", "card_line": "#111111", "chip": "#FFFFFF", "code_bg": "#111111", "code_text": "#FFE45C",
+    "accent1": "#111111", "accent2": "#E5322D", "accent3": "#1E1EF6", "accent4": "#0E9F6E", "accent5": "#9B3DF2",
+    "keyword": "#E5322D", "badge_text": "#FFFFFF", "label_bg": "#111111", "label_text": "#FFE45C",
+    "good": "#0E9F6E", "good_soft": "#E6F8EE", "bad": "#E5322D", "bad_soft": "#FFE3DD"
+  }
+}

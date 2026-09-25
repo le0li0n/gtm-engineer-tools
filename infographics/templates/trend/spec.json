@@ -1,0 +1,26 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "trend",
+  "preset": "electric",
+  "size": "portrait",
+  "eyebrow": "LOREM, MEASURED",
+  "title": "The [[lorem]] was already fading",
+  "subtitle": "Share of conversation, January to August.",
+  "data": {
+    "unit": "%",
+    "y_label": "Share of conversation",
+    "series": [
+      { "name": "Lorem ipsum", "accent": true, "points": [["Jan", 6.2], ["Mar", 8.9], ["May", 5.1], ["Aug", 2.8]] },
+      { "name": "Dolor sit", "points": [["Jan", 1.4], ["Mar", 2.1], ["May", 3.3], ["Aug", 4.6]] }
+    ],
+    "annotations": [{ "x": "Mar", "text": "Peak" }],
+    "context_title": "What's behind it",
+    "context": [
+      { "date": "Feb", "text": "Lorem launch drew the first wave" },
+      { "date": "May", "text": "Ipsum shipped a free tier" },
+      { "date": "Jul", "text": "Dolor became the default" }
+    ]
+  },
+  "note": "Method: lorem ipsum panel, 20K posts a month, engagement-weighted."
+}

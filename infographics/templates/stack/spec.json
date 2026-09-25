@@ -1,0 +1,22 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "stack",
+  "preset": "midnight",
+  "size": "portrait",
+  "eyebrow": "LOREM STACK · 2026",
+  "title": "The [[Lorem Ipsum]] stack for dolor sit",
+  "subtitle": "Every tool a seed-stage lorem needs, grouped by the job it does.",
+  "data": {
+    "groups": [
+      { "name": "Capture", "price": "$0–20", "note": "Lorem ipsum dolor sit amet", "tools": ["Loremly", "Ipsum.ai", "Dolorhub"] },
+      { "name": "Draft", "price": "$0", "note": "Consectetur adipiscing elit", "tools": ["Sitflow", "Ametly", "Consecta"] },
+      { "name": "The new center", "featured": true, "wide": true, "note": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", "tools": ["Adipisc", "Elitware", "Sedo", "Tempora", "Incidunt"] },
+      { "name": "Publish", "price": "$0–29", "note": "Ut enim ad minim veniam", "tools": ["Laborio", "Magnaq", "Aliqua", "Veniam"] },
+      { "name": "Measure", "price": "$49", "note": "Quis nostrud exercitation", "tools": ["Nostrud", "Exercita", "Ullamco"] },
+      { "name": "Newsletter", "price": "$0–39", "note": "Duis aute irure dolor", "tools": ["Laboris", "Nisiware", "Irure"] },
+      { "name": "Video", "price": "$24", "note": "Excepteur sint occaecat", "tools": ["Occaeca", "Cupidat", "Proident"] }
+    ]
+  },
+  "note": "Source: lorem ipsum research, Sept 2026. Prices are list, monthly."
+}

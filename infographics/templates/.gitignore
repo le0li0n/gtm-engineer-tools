@@ -1,0 +1,6 @@
+# Keep each template's spec.json and preview.png, plus gallery.png; the rest is rebuilt by
+# `node scripts/render.mjs templates`.
+*/*.html
+*/*-360.png
+*/qa.json
+*/sheet.*

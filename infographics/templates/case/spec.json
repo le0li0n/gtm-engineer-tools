@@ -1,0 +1,31 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "case",
+  "preset": "citrus",
+  "size": "portrait",
+  "eyebrow": "CAMPAIGN BREAKDOWN",
+  "title": "One [[lorem post]] booked 14 calls",
+  "subtitle": "What we did, what it cost, and what we'd do again.",
+  "data": {
+    "results": [
+      { "value": "14", "label": "calls booked" },
+      { "value": "86K", "label": "impressions" },
+      { "value": "$0", "label": "ad spend" }
+    ],
+    "setup": [
+      { "icon": "target", "label": "Goal", "value": "Lorem pipeline" },
+      { "icon": "clock", "label": "Time", "value": "4 hours" },
+      { "icon": "users", "label": "Team", "value": "1 founder" },
+      { "icon": "money", "label": "Budget", "value": "$0" }
+    ],
+    "steps": [
+      { "title": "Mined 12 calls", "body": "Found the one ipsum every buyer asked about." },
+      { "title": "Built the asset", "body": "A dolor checklist from our own playbook." },
+      { "title": "Posted Sunday", "body": "Replied to every comment for three hours." },
+      { "title": "Followed up", "body": "DM'd the 40 best commenters by hand." }
+    ],
+    "lesson": "The asset worked because it was a by-product of real work, not a lead magnet made for the post."
+  },
+  "note": "Source: lorem ipsum internal numbers."
+}

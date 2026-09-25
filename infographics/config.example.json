@@ -1,0 +1,17 @@
+{
+  "_about": "Copy to .infographic.json at the root of your repo. Paths are relative to that file.",
+  "brand": {
+    "name": "Your Company",
+    "author": "Your Name",
+    "url": "yoursite.com",
+    "avatar": "brand/headshot.jpg",
+    "wordmark_light": "brand/wordmark-dark-ink.png",
+    "wordmark_dark": "brand/wordmark-white.png",
+    "tokens_css": null,
+    "italic_word": null
+  },
+  "output_dir": "graphics",
+  "kits_dirs": ["brand/kits"],
+  "rotation": ["pop", "midnight", "electric", "citrus", "ocean"],
+  "footer_actions": ["Save", "Repost"]
+}

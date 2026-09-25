@@ -1,0 +1,6 @@
+{
+  "name": "infographics",
+  "version": "0.1.0",
+  "description": "LinkedIn infographics from a JSON spec: 19 template types (stack, layers, workflow, decision tree, who-to-follow, events, mistakes vs fixes, campaign breakdown, comparison, stats, trend and more) in rotating style kits, rendered through headless Chrome and checked before anyone looks. Your brand, headshot and color kits come from one config file. Copy is never generated.",
+  "author": { "name": "Jared Waxman" }
+}

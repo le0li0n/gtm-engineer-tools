@@ -1,0 +1,13 @@
+{
+  "name": "electric",
+  "label": "Electric — white, electric blue, yellow marker highlight",
+  "mode": "light",
+  "marker": true,
+  "colors": {
+    "bg": "#FFFFFF", "grid": "rgba(30,30,246,0.05)", "text": "#0A0A14", "text_soft": "#33334A", "muted": "#6E6E82",
+    "line": "#E3E3EE", "card": "#F6F6FB", "card_line": "#E3E3EE", "chip": "#FFFFFF", "code_bg": "#EEF0FF", "code_text": "#1E1EF6",
+    "accent1": "#1E1EF6", "accent2": "#FF4D8D", "accent3": "#00B383", "accent4": "#FF8A00", "accent5": "#7A3CFF",
+    "keyword": "#1E1EF6", "highlight": "#FFE14D", "badge_text": "#FFFFFF",
+    "good": "#00B383", "good_soft": "#E0F7EF", "bad": "#F0364A", "bad_soft": "#FDE6E9"
+  }
+}

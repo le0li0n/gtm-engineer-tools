@@ -1,0 +1,26 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "versus",
+  "preset": "citrus",
+  "size": "portrait",
+  "eyebrow": "LOREM IPSUM MISTAKES",
+  "title": "10 [[lorem ipsum]] mistakes, and the fix",
+  "data": {
+    "left_title": "Mistake",
+    "right_title": "Do this instead",
+    "pairs": [
+      ["Posting lorem three times a day", "Post ipsum three times a week"],
+      ["Writing for everyone in dolor", "Write for one reader you've met"],
+      ["Opening with a generic sit amet", "Open with a specific, testable claim"],
+      ["Hiding the numbers", "Show one real number per post"],
+      ["Letting an agent write the take", "Dictate the take, let it draft"],
+      ["Ignoring the comments", "Reply to every comment in the first hour"],
+      ["Gating every consectetur", "Give most assets away, gate one a quarter"],
+      ["Measuring likes and followers", "Measure DMs, calls, how-did-you-hear"],
+      ["Using the company page", "Post from the founder's own account"],
+      ["Quitting after month two", "Plan for six months of quiet"]
+    ]
+  },
+  "note": "Source: lorem ipsum playbook, Sept 2026."
+}

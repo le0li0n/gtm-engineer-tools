@@ -17,6 +17,7 @@ Then install what you want:
 /plugin install automerge
 /plugin install deck-graphics
 /plugin install deck-builder
+/plugin install infographics
 /plugin install always-worktree
 /plugin install canonical
 /plugin install permissions
@@ -63,6 +64,16 @@ Then someone asks for the slides in Google Slides so they can edit them. Before 
 Every default, two versions and five words on a stage slide included, is printed at the start of a build and can be changed or switched off. It ships no brand: one `brand.json` points at your design system, and deck-graphics reads the same file. Needs Python 3.9+, Chrome, and `pillow` and `python-pptx` for the check and the PowerPoint.
 
 [Full documentation →](./deck-builder/)
+
+### `infographics`
+
+The graphics that do well on LinkedIn look like reference sheets someone spent hours on: a bold headline that states the finding, one keyword in color, real logos and faces, numbers with a source, a body dense enough to save. This renders them from a JSON spec. Nineteen template types (layers, stack, workflow, decision tree, who-to-follow, events, mistakes vs fixes, campaign breakdown, comparison, stats, trend and more), each with a placeholder spec and a rendered preview to copy.
+
+Five color kits rotate automatically, so a feed posting three times a week doesn't repeat a look; your own kits join the rotation. Before anyone looks, the render is checked for overflow, text spilling out of its box, overlaps, phone legibility, spelling and numbers with no source. Then the skill looks at every PNG, because the checks once passed graphics with arrows hidden under cards.
+
+The renderer never writes copy. `/infographics:setup` writes one config with your name, URL, headshot and wordmarks. Needs Chrome and Node 22; no npm packages.
+
+[Full documentation →](./infographics/)
 
 ### `always-worktree`
 

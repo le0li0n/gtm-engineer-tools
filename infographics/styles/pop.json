@@ -1,0 +1,12 @@
+{
+  "name": "pop",
+  "label": "Pop — warm light, orange keyword, five bright accents",
+  "mode": "light",
+  "colors": {
+    "bg": "#FBF7F1", "grid": "rgba(20,20,40,0.055)", "text": "#14141F", "text_soft": "#3A3A4A", "muted": "#7A7885",
+    "line": "#E4DDD2", "card": "#FFFFFF", "card_line": "#E7E0D6", "chip": "#FFFFFF", "code_bg": "#F2EDE5", "code_text": "#2B2B3A",
+    "accent1": "#F25C2A", "accent2": "#1E1EF6", "accent3": "#12A37F", "accent4": "#8B5CF6", "accent5": "#E8A300",
+    "keyword": "#F25C2A", "highlight": "#FFE14D", "badge_text": "#FFFFFF",
+    "good": "#12A37F", "good_soft": "#E3F6EF", "bad": "#E23D2E", "bad_soft": "#FDE8E5"
+  }
+}

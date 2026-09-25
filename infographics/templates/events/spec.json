@@ -1,0 +1,20 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "events",
+  "preset": "electric",
+  "size": "portrait",
+  "eyebrow": "WHERE TO BE THIS FALL",
+  "title": "6 [[lorem ipsum]] events worth the flight",
+  "data": {
+    "events": [
+      { "name": "Lorem Summit", "month": "OCT", "days": "14–16", "city": "San Francisco", "host": "Loremly", "why": "Where every dolor team ships its roadmap.", "tag": "Flagship", "price": "$1,299" },
+      { "name": "Ipsum Live", "month": "OCT", "days": "22", "city": "New York", "host": "Ipsum.ai", "why": "One day, all operators, no vendor pitches.", "tag": "Operators", "price": "Free" },
+      { "name": "Dolor Days", "month": "NOV", "days": "5–6", "city": "London", "why": "Europe's biggest sit amet crowd.", "tag": "EU", "price": "£450" },
+      { "name": "Sit Amet Dinner", "month": "NOV", "days": "12", "city": "Austin", "host": "invite only", "why": "Twenty founders, one long table.", "tag": "Intimate", "price": "Apply" },
+      { "name": "Consectetur Con", "month": "DEC", "days": "3–4", "city": "Virtual", "why": "The best talks, streamed free.", "tag": "Online", "price": "Free" },
+      { "name": "Elit Week", "month": "JAN", "days": "20–24", "city": "Miami", "why": "A week of side events around the main one.", "tag": "Side events", "price": "$799" }
+    ]
+  },
+  "note": "Dates and prices as listed, Sept 2026."
+}

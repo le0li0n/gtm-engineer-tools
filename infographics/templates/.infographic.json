@@ -1,0 +1,19 @@
+{
+  "_about": "Demo identity used only to render the template previews in this folder. Your own graphics use the .infographic.json at your repo root.",
+  "brand": {
+    "name": "Your Company",
+    "author": "Your Name",
+    "url": "yoursite.com"
+  },
+  "rotation": [
+    "pop",
+    "midnight",
+    "electric",
+    "citrus",
+    "ocean"
+  ],
+  "footer_actions": [
+    "Save",
+    "Repost"
+  ]
+}

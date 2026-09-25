@@ -1,0 +1,26 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "resources",
+  "preset": "pop",
+  "size": "portrait",
+  "eyebrow": "WHO TO FOLLOW",
+  "title": "The [[lorem ipsum]] people worth following",
+  "subtitle": "Who to read, follow and listen to if you run dolor sit amet.",
+  "data": {
+    "groups": [
+      { "kind": "Follow", "name": "on LinkedIn", "items": [
+        { "name": "Lorem Ipsumson", "handle": "@loremip · 120K", "why": "Frameworks you can screenshot and reuse." },
+        { "name": "Dolora Sitwell", "handle": "@dolora · 88K", "why": "Charts and more charts, every week." },
+        { "name": "Amet Consect", "handle": "@ametc · 54K", "why": "Data nobody else bothered to collect." },
+        { "name": "Elit Sedman", "handle": "@elits · 41K", "why": "Hands-on builds, shared as kits." } ] },
+      { "kind": "Read", "name": "newsletters", "items": [
+        { "name": "The Lorem Letter", "handle": "loremletter.com", "why": "Weekly teardown of one dolor launch." },
+        { "name": "Ipsum Weekly", "handle": "ipsumweekly.co", "why": "Benchmarks with the raw data attached." } ] },
+      { "kind": "Listen", "name": "podcasts", "items": [
+        { "name": "Dolor Radio", "handle": "Ep. 214 · 45 min", "why": "Founders on their first 100 customers." },
+        { "name": "Sit Amet Show", "handle": "Ep. 88 · 30 min", "why": "Operators explain one tactic in depth." } ] }
+    ]
+  },
+  "note": "Follower counts as of Sept 2026."
+}

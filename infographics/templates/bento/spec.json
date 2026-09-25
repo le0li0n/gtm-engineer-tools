@@ -1,0 +1,19 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "bento",
+  "preset": "pop",
+  "size": "portrait",
+  "eyebrow": "90 DAYS IN",
+  "title": "Everything that changed since [[lorem ipsum]]",
+  "data": {
+    "cards": [
+      { "tag": "Pipeline", "big": "3.2×", "title": "More inbound from the founder's posts", "points": ["Lorem ipsum dolor sit amet", "Consectetur adipiscing elit"] },
+      { "tag": "Content", "title": "Research and trend detection", "points": ["Sed do eiusmod tempor", "Incididunt ut labore et dolore", "Magna aliqua ut enim"] },
+      { "tag": "Automation", "title": "Workflows built in minutes, not weeks", "points": ["Ut enim ad minim veniam", "Quis nostrud exercitation", "Ullamco laboris nisi"] },
+      { "tag": "Design", "big": "40%", "title": "Less time per graphic", "points": ["Duis aute irure dolor", "In reprehenderit in voluptate"] },
+      { "tag": "What's next", "wide": true, "title": "Where lorem goes from here", "points": ["Excepteur sint occaecat cupidatat non proident", "Sunt in culpa qui officia deserunt mollit anim"] }
+    ]
+  },
+  "note": "Source: lorem ipsum internal numbers, Q3 2026."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "ocean",
+  "label": "Ocean — deep teal, mint keyword, warm accents",
+  "mode": "dark",
+  "colors": {
+    "bg": "#06343A", "grid": "rgba(120,255,230,0.07)", "text": "#F1FBF9", "text_soft": "#BFE3DD", "muted": "#7FB3AB",
+    "line": "#11505A", "card": "#0B434B", "card_line": "#16606B", "chip": "#0F4F58", "code_bg": "#042A2F", "code_text": "#7CF5D9",
+    "accent1": "#7CF5D9", "accent2": "#FFB547", "accent3": "#FF7B9C", "accent4": "#8FB8FF", "accent5": "#F5F07C",
+    "keyword": "#7CF5D9", "badge_text": "#042A2F", "label_bg": "#0F5A63", "label_text": "#FFFFFF",
+    "good": "#7CF5D9", "good_soft": "rgba(124,245,217,0.12)", "bad": "#FF7B9C", "bad_soft": "rgba(255,123,156,0.13)"
+  }
+}

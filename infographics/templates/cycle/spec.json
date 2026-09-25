@@ -1,0 +1,20 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "cycle",
+  "preset": "ocean",
+  "size": "portrait",
+  "eyebrow": "THE LOREM LOOP",
+  "title": "Every [[lorem]] should end in an ipsum",
+  "data": {
+    "center": { "title": "Run it from day one", "body": "Three times a week" },
+    "stages": [
+      { "title": "Post", "body": "One claim and a question to argue with" },
+      { "title": "Comments", "body": "Read every one", "human": true, "tag": "you" },
+      { "title": "DMs", "body": "Message the five best", "human": true, "tag": "you" },
+      { "title": "Calls", "body": "Turn two into calls", "human": true, "tag": "you" },
+      { "title": "Next post", "body": "What you heard becomes the topic" }
+    ]
+  },
+  "note": "Source: lorem ipsum playbook."
+}

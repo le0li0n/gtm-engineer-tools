@@ -1,0 +1,26 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "cheatsheet",
+  "preset": "electric",
+  "size": "portrait",
+  "eyebrow": "SAVE THIS",
+  "title": "12 [[lorem ipsum]] prompts I use every week",
+  "data": {
+    "columns": 2,
+    "items": [
+      { "title": "The lorem teardown", "body": "Paste a competitor page; get positioning, pricing, gaps." },
+      { "title": "The ipsum interview", "body": "Five questions that pull a take out of your head." },
+      { "title": "The dolor rewrite", "body": "Cut any draft by 40% without losing the claim." },
+      { "title": "The sit amet hook", "body": "Six two-line openings for one topic." },
+      { "title": "The consectetur audit", "body": "Score a post against your best ten." },
+      { "title": "The adipiscing brief", "body": "Turn a call transcript into three topics." },
+      { "title": "The elit objection", "body": "List what a skeptic would say, then answer it." },
+      { "title": "The sed do recap", "body": "One paragraph of what changed this quarter." },
+      { "title": "The tempor table", "body": "Compare three tools on the six criteria that matter." },
+      { "title": "The incididunt check", "body": "Flag every number that has no source." },
+      { "title": "The labore letter", "body": "Draft the fortnightly note from the week's posts." },
+      { "title": "The magna follow-up", "body": "Reply to a commenter and move to a call." }
+    ]
+  }
+}

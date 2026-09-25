@@ -1,0 +1,20 @@
+{
+  "name": "preview",
+  "placeholder": true,
+  "archetype": "stats",
+  "preset": "citrus",
+  "size": "portrait",
+  "eyebrow": "LOREM IPSUM, BY THE NUMBERS",
+  "title": "The [[dolor]] is decided before the call",
+  "subtitle": "Four numbers from our sit amet research.",
+  "data": {
+    "pick": 0,
+    "stats": [
+      { "value": "94%", "label": "of lorem buyers decide before first contact", "sub": "Ipsum study, 2025" },
+      { "value": "5×", "label": "more reach for a person than a page", "sub": "Dolor report, 2025" },
+      { "value": "1.6%", "label": "of followers a page actually reaches", "sub": "Dolor report, 2025" },
+      { "value": "0%", "label": "credited by attribution software", "sub": "53% when buyers were asked" }
+    ]
+  },
+  "note": "Sources: lorem ipsum studies as listed."
+}
