@@ -143,7 +143,9 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/deckbuilder.py" export talks/q3-keynote/d
 
 ## Runtime
 
-`runtime/deck.js` is a small `<slide-deck>` web component. It scales to fit, navigates by keyboard and touch, shows speaker notes with `N`, follows `#N` in the URL, and prints one slide per page. The checks and exports don't depend on it: they pin one slide at a time with CSS. That means decks built on another runtime work too, as long as slides are `<section>` children of the deck element.
+`runtime/deck.js` is a small `<slide-deck>` web component. It scales to fit, follows `#N` in the URL, and prints one slide per page. A click anywhere advances and a click on the left fifth of the stage goes back; the arrow keys in all four directions, PageUp/PageDown, Space and Home/End do the same, and touch splits at the middle. Links, buttons and selected text keep their click. `N` shows the speaker notes.
+
+A rail of numbered thumbnails runs down the left, one per slide, each a static clone of the slide inside an inert `<slide-deck thumb>` wrapper so the deck's own `slide-deck > section` CSS styles it. The current slide is outlined and kept in view; click a thumbnail to jump. The chevron tab at the top left, or `R`, hides and shows the rail, and the choice persists in localStorage. It starts hidden on windows narrower than 900px, never prints, and is skipped when the element carries `noscale` or `no-rail`; the stage server strips the runtime before capturing a slide anyway, so exports never see it. `?rail` in the URL forces it on for a headless check. The checks and exports don't depend on it: they pin one slide at a time with CSS. That means decks built on another runtime work too, as long as slides are `<section>` children of the deck element.
 
 ## Tests
 
