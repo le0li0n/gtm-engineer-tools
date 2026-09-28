@@ -23,6 +23,7 @@ Then install what you want:
 /plugin install permissions
 /plugin install forbidden
 /plugin install slop-check
+/plugin install gtm-library
 ```
 
 ## What's here
@@ -115,7 +116,17 @@ Flags AI writing tells in outward-facing prose before it's sent or published. Wa
 
 Lives in [its own repo](https://github.com/le0li0n/slop-check) with its 382-document human corpus and its attribution chain. Listed here so one marketplace covers the set.
 
-## Why these nine
+### `gtm-library`
+
+An ICP written once in a slide is stale by the next quarter, and no script can read it. This keeps the same material as small linked files: what you sell, the kinds of company that buy it, the people inside them, the objections they raise, what they do instead, what makes now the moment, and the proof. Personas are their own files, so one persona sits in several ICPs and its titles change with company size rather than being copied: the same job is "GTM Engineer" at a 20-person startup and "Revenue Systems Analyst" at a 5,000-person one.
+
+Because it is structured, a script can use it. `match` places a title and a company on an ICP and persona, `questions` hands a researcher the qualifying and research questions for that pair, and `classify` runs a list of people who actually bought through the whole library and reports the share no ICP describes. That number is the point: the first run against 265 real buyers found 30% outside every ICP, which is how the industry filter got dropped.
+
+`/gtm-library:build` creates and edits it, `/gtm-library:qualify` scores an account against one offering's weighted questions and briefs the call, and `/gtm-library:evidence` keeps it current from call transcripts, mail, campaign replies and the CRM, and sets up a weekly routine that proposes changes as a pull request you merge or close. Needs Python 3.
+
+[Full documentation →](./gtm-library/)
+
+## Why these eleven
 
 They're the parts of one person's stack that turned out to be portable. The context layer underneath them — a git repo per company holding positioning, clients, deals and call transcripts, which every agent reads before acting — is the part that matters most and the part nobody can hand you.
 
@@ -123,4 +134,4 @@ These are what sits on top of it.
 
 ## Licence
 
-MIT for `reply-queue`, `automerge`, `deck-graphics`, `deck-builder`, `always-worktree`, `canonical`, `permissions` and `forbidden`. `slop-check` carries its own chain — CC BY-SA 4.0, built on [blader/humanizer](https://github.com/blader/humanizer) (MIT) and Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
+MIT for `reply-queue`, `automerge`, `deck-graphics`, `deck-builder`, `infographics`, `always-worktree`, `canonical`, `permissions`, `forbidden` and `gtm-library`. `slop-check` carries its own chain — CC BY-SA 4.0, built on [blader/humanizer](https://github.com/blader/humanizer) (MIT) and Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).

@@ -1,0 +1,24 @@
+{
+  "library": "gtm-library",
+  "render_to": "gtm-library/ICP.md",
+  "competitors_dir": null,
+  "cadence_days": 90,
+  "offering_kinds": [
+    "product",
+    "service",
+    "solution",
+    "sponsorship"
+  ],
+  "motions": [
+    "new",
+    "renewal",
+    "expansion",
+    "win-back"
+  ],
+  "tag_groups": [],
+  "classifier": {
+    "backend": null,
+    "min_confidence": 0.7,
+    "key_env": "JEV_API_KEY"
+  }
+}
