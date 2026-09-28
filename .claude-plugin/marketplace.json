@@ -100,6 +100,15 @@
       "author": {
         "name": "Jared Waxman"
       }
+    },
+    {
+      "name": "gtm-library",
+      "displayName": "GTM Library",
+      "source": "./gtm-library",
+      "description": "What you sell, to which companies, to which people, for what jobs, with what proof. One markdown file per item, linked by id and kept current from calls, mail and the CRM. Matches a title and a company to an ICP and persona, scores an account against weighted qualifying questions, and briefs the call.",
+      "author": {
+        "name": "Jared Waxman"
+      }
     }
   ]
 }

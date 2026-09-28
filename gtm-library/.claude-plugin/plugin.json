@@ -1,0 +1,6 @@
+{
+  "name": "gtm-library",
+  "version": "0.7.0",
+  "description": "A living GTM library: offerings, ICPs, personas with titles by company size and industry, optionally scoped to one offering, weighted research questions, use cases, references, proof points, objections, alternatives, triggers, competitors and angles, one file each, linked and scoped by offering and motion. A script matches titles and companies to it, scores accounts on weighted questions, labels lead lists for import, writes call briefs, places titles with an optional classifier (TypeSafe's Jev), and checks it against who actually bought; a weekly routine asks every call the same questions, logs verbatim quotes, checks sources for drift, and proposes updates as a PR, remembering what was rejected.",
+  "author": { "name": "Jared Waxman" }
+}
