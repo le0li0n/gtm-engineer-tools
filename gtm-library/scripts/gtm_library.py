@@ -740,6 +740,75 @@ def classify(items, path, title_col, size_col, industry_col, offering=None, reve
         print(f"  {v:>4}  {k}")
 
 
+def label(items, path, offering, title_col, size_col, industry_col, revenue_col, out_csv, backend=None, extra_col=None):
+    """Label a lead list for one offering, so it can go into a campaign tool as it is. Every row
+    keeps its own columns and gains: the persona, where that came from (a listed title, the
+    title regex, the classifier, or nothing), the classifier's confidence, and the ICP its
+    firmographics fit. The rules decide a listed title; the classifier is asked only about the
+    rest, once per distinct title. Anything under the confidence bar is left `unsure` for a
+    person, never guessed."""
+    rows = list(csv.DictReader(open(path, encoding="utf-8-sig")))
+    if not rows:
+        sys.exit(f"{path} has no rows")
+    cands = list(dict.fromkeys(offering_personas(items, offering)))
+    icp_ids = set(as_list(items[offering].get("icps")))
+    ruled, ask = [], {}
+    for r in rows:
+        t = (r.get(title_col) or "").strip()
+        size, ind, rev = r.get(size_col, ""), r.get(industry_col, ""), r.get(revenue_col, "")
+        hits = [h for h in match_personas(items, t, size, ind, offering=offering) if h[0]["id"] in cands] if t else []
+        icps = [x for x in match_icps(items, size, ind, rev) if x[0]["id"] in icp_ids] if (size or ind or rev) else []
+        top = hits[0] if hits else None
+        if t and (not top or top[1] < 2):
+            ask[t + "\u0000" + (r.get(extra_col) or "" if extra_col else "")] = (t, r.get(extra_col) or "" if extra_col else "")
+        ruled.append((r, t, top, icps[0][0]["id"] if icps and icps[0][1] > 0 else ""))
+    placed = {}
+    if ask and backend == "jev":
+        try:
+            placed = place_with_jev(items, [(k, v[0], v[1]) for k, v in ask.items()], cands)
+        except JevUnavailable as e:
+            print(f"note: {e}; labelling with the rules only\n", file=sys.stderr)
+    out, counts = [], collections.Counter()
+    for r, t, top, icp in ruled:
+        persona, source, conf = "", "none", ""
+        if top and top[1] >= 2:
+            persona, source = top[0]["id"], "listed title"
+        elif t:
+            key = t + "\u0000" + ((r.get(extra_col) or "") if extra_col else "")
+            jp, jc = placed.get(key, (None, 0.0))
+            if jc >= CLASSIFIER["min_confidence"]:
+                persona, source, conf = (jp or ""), ("classifier" if jp else "classifier: none of them"), round(jc, 2)
+            elif top:
+                persona, source = top[0]["id"], "title regex"
+            elif backend == "jev" and placed:
+                source, conf = "unsure", round(jc, 2)
+        counts[source] += 1
+        d = dict(r)
+        d["gtm_persona"], d["gtm_persona_source"], d["gtm_persona_confidence"], d["gtm_icp"], d["gtm_offering"] = persona, source, conf, icp, offering
+        out.append(d)
+    fields = list(rows[0].keys()) + [c for c in ("gtm_persona", "gtm_persona_source", "gtm_persona_confidence", "gtm_icp", "gtm_offering") if c not in rows[0]]
+    dest = out_csv or os.path.splitext(path)[0] + "-labelled.csv"
+    w = csv.DictWriter(open(dest, "w", newline="", encoding="utf-8"), fieldnames=fields)
+    w.writeheader(); w.writerows(out)
+    n = len(out)
+    print(f"{n} leads labelled for {offering} → {os.path.relpath(dest, ROOT)}\n")
+    print("## Where the persona came from")
+    for k, v in counts.most_common():
+        print(f"  {v:>5}  {v / n:>4.0%}  {k}")
+    print("\n## Persona")
+    for k, v in collections.Counter(d["gtm_persona"] or "-" for d in out).most_common():
+        print(f"  {v:>5}  {v / n:>4.0%}  {k}")
+    print("\n## ICP")
+    for k, v in collections.Counter(d["gtm_icp"] or "-" for d in out).most_common():
+        print(f"  {v:>5}  {v / n:>4.0%}  {k}")
+    unsure = [d for d in out if d["gtm_persona_source"] in ("unsure", "none")]
+    if unsure:
+        print(f"\n## For a person to look at: {len(unsure)}")
+        for t, v in collections.Counter((d.get(title_col) or "(blank title)") for d in unsure).most_common(20):
+            print(f"  {v:>5}  {t}")
+    return out
+
+
 def _classify_with_jev(items, rows, path, title_col, size_col, industry_col, offering, revenue_col, out_csv):
     """Rules first; every distinct title Jev then places too. Reports agreement where the
     rules were sure, what Jev adds where they weren't, and writes one row per person."""
@@ -1406,6 +1475,12 @@ def main():
     s.add_argument("--title-col", default="Title"); s.add_argument("--size-col", default="Employee Size"); s.add_argument("--industry-col", default="Industry"); s.add_argument("--offering")
     s.add_argument("--revenue-col", default="Annual Revenues")
     s.add_argument("--backend", choices=["jev"]); s.add_argument("--out")
+    s = sub.add_parser("label", help="label a lead list with personas and ICPs for one offering")
+    s.add_argument("csv"); s.add_argument("--offering", required=True)
+    s.add_argument("--title-col", default="Title"); s.add_argument("--size-col", default="Employee Size")
+    s.add_argument("--industry-col", default="Industry"); s.add_argument("--revenue-col", default="Annual Revenues")
+    s.add_argument("--extra-col", help="another column to give the classifier, e.g. a headline or company")
+    s.add_argument("--backend", choices=["jev"]); s.add_argument("--out")
     s = sub.add_parser("qualify")
     for f in ("--offering", "--icp", "--persona"):
         s.add_argument(f)
@@ -1447,9 +1522,9 @@ def main():
         if not a.stale:
             lp, lw = lint_loop(items)
             problems += lp; warnings += lw
-        for label, xs in (("ERROR", problems), ("warn", warnings), ("stale", stale)):
+        for lbl, xs in (("ERROR", problems), ("warn", warnings), ("stale", stale)):
             for x in xs:
-                print(f"{label}: {x}")
+                print(f"{lbl}: {x}")
         print(f"{len(items)} items · {len(problems)} errors · {len(warnings)} warnings · {len(stale)} stale")
         sys.exit(1 if problems else 0)
     if errors:
@@ -1502,8 +1577,8 @@ def main():
         if a.json:
             print(json.dumps(q, indent=2))
         else:
-            for label, block in q.items():
-                print(f"# {label}: {block['name']} ({block['id']})")
+            for lbl, block in q.items():
+                print(f"# {lbl}: {block['name']} ({block['id']})")
                 for fit, head in (("good", "qualify_good (yes = fit)"), ("bad", "qualify_bad (yes = not a fit)"), (None, "deep (research only)")):
                     print(f"## {head}")
                     for x in block["questions"]:
@@ -1514,6 +1589,9 @@ def main():
     elif a.cmd == "classify":
         classify(items, a.csv, a.title_col, a.size_col, a.industry_col, a.offering, a.revenue_col,
                  pick_backend(a.backend), a.out)
+    elif a.cmd == "label":
+        label(items, a.csv, a.offering, a.title_col, a.size_col, a.industry_col, a.revenue_col, a.out,
+              pick_backend(a.backend), a.extra_col)
     elif a.cmd == "qualify":
         ids = [x for x in (a.offering, a.icp, a.persona) if x]
         for x, want in ((a.icp, "icp"), (a.persona, "persona")):

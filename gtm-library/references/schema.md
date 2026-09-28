@@ -311,6 +311,7 @@ Two logs sit beside the element folders as markdown tables, so they read in any 
 | `drift` | Repo sources changed since their element's `last_confirmed` (from git, merges left out), and the web pages offerings cite, to re-read. |
 | `extractors` | The standing questions for every call. |
 | `counts --since DATE` | Per offering: quotes logged and suggestions made since the date. |
+| `label CSV --offering O [--backend jev] [--extra-col C] [--out FILE]` | Labels a lead list for one offering and writes it back with its own columns plus `gtm_persona`, `gtm_persona_source` (listed title, title regex, classifier, unsure, none), `gtm_persona_confidence`, `gtm_icp` and `gtm_offering` — ready to import into a campaign tool. The rules decide a listed title; the classifier is asked once per distinct title about the rest; anything under the confidence bar stays `unsure` for a person. |
 | `classify CSV --backend jev [--out FILE]` | As `classify`, and every distinct title also goes to the classifier: agreement where the rules were sure, what it adds where they weren't, one row per person to `--out`. |
 
 ## Not built yet

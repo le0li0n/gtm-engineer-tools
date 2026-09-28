@@ -75,7 +75,7 @@ Every mode that writes ends with `lint` clean, then `render`.
 
 ## How other skills use it
 
-- **List building and campaigns:** `match` to place a person, `titles.by_size` and `title_regex` for searches, `questions --json` for per-person research, `export --type angle --offering …` for the pitch and what it draws on.
+- **List building and campaigns:** `label <csv> --offering …` puts every lead in a persona and an ICP before the list goes near a campaign tool, and says which ones a person still has to judge. Then `titles.by_size` and `title_regex` for searches, `questions --json` for per-person research, `export --type angle --offering …` for the pitch and what it draws on.
 - **Who we're up against:** `list --type competitor --offering …`.
 - **Objection handling:** `list --type objection --offering … --motion …`, then `export` for the reframes.
 - **Call prep:** `brief --offering … --icp … --persona … --motion …`, or `/gtm-library:qualify` to score the account first.

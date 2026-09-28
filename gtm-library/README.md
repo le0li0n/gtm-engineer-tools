@@ -48,6 +48,7 @@ python3 scripts/gtm_library.py lint [--stale]
 python3 scripts/gtm_library.py match --title "Head of Revenue Operations" --employees "201-500 employees"
 python3 scripts/gtm_library.py questions --icp mid-market-finance-team --persona controller --json
 python3 scripts/gtm_library.py classify customers.csv --offering close-platform
+python3 scripts/gtm_library.py label leads.csv --offering close-platform --backend jev
 python3 scripts/gtm_library.py list --type objection --offering close-platform --motion new
 python3 scripts/gtm_library.py export --type angle
 python3 scripts/gtm_library.py qualify --offering close-platform --icp mid-market-finance-team --answers answers.json
@@ -62,6 +63,7 @@ python3 scripts/gtm_library.py render        # ICP.md and dashboard.html
 - `list` and `export` filter by type, offering and motion; `export` gives each item as an agent reads it, with body sections by heading.
 - `match` places a person: 3 points if the title is listed for that company size or industry, 2 if in the default list, 1 if only the regex catches it. An exclude pattern wins.
 - `classify` runs a CSV of real buyers through the library and prints the misses. The share of buyers no ICP describes is the number to watch.
+- `label` takes a lead list and writes it back with a persona, where that persona came from, the classifier's confidence and the matching ICP — the shape a campaign tool imports. On 265 real buyers the rules settled 57% on their own, the classifier confidently added 25% more, said 6% were outside GTM, and left 12% for a person.
 - `qualify` scores answered questions: out of 100 on what's answered, with deal-breakers and coverage. The arithmetic is in the script so the same answers always give the same score; the answers come from the `qualify` skill, or from the classifier.
 - **The classifier** (`"classifier": {"backend": "jev"}` in the config) makes closed-answer judgements with TypeSafe's Jev: which persona a title belongs to when the rules aren't sure, and yes / no / not stated for a qualifying question given evidence. Every answer carries a confidence, and below the bar it stays unknown. On 198 real buyer titles it agreed with the listed titles 82 times in 85, against 66 for a small Claude model given the same persona descriptions.
 - Other scripts can `import gtm_library` and call `load()`, `match_icps()`, `match_personas()`, `questions()`, `select()` and `agent_view()`.

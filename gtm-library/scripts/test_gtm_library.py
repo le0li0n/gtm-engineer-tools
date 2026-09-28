@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Tests for gtm_library.py. Standard library only: python3 test_gtm_library.py"""
-import json, os, shutil, subprocess, sys, tempfile, unittest
+import csv, json, os, shutil, subprocess, sys, tempfile, unittest
 from datetime import date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -576,6 +576,59 @@ class Loop(unittest.TestCase):
         self.assertIn("rejected", self.r.cli("suggestions", "--status", "rejected").stdout)
         self.assertIn("objection:", self.r.cli("extractors").stdout)
         self.assertIn("**close-platform**: 2 quotes", self.r.cli("counts", "--since", "2026-09-01").stdout)
+
+
+class Label(unittest.TestCase):
+    """Labelling a lead list for one offering, for import into a campaign tool."""
+
+    def setUp(self):
+        self.r = Repo()
+        write(self.r.root, "leads.csv", "Name,Title,Employee Size,Industry\n"
+              "A,Controller,201-500 employees,Software\n"          # listed title
+              "B,Head of Accounting Systems,201-500 employees,Software\n"  # regex only
+              "C,Chief Vibes Officer,201-500 employees,Software\n"  # nothing
+              "D,,201-500 employees,Software\n")                    # no title
+        self.leads = os.path.join(self.r.root, "leads.csv")
+
+    def rows(self, path):
+        return list(csv.DictReader(open(path, encoding="utf-8")))
+
+    def test_rules_only_keeps_columns_and_says_where_each_came_from(self):
+        out = self.r.cli("label", self.leads, "--offering", "close-platform")
+        self.assertIn("4 leads labelled for close-platform", out.stdout)
+        rows = self.rows(os.path.join(self.r.root, "leads-labelled.csv"))
+        self.assertEqual([r["Name"] for r in rows], ["A", "B", "C", "D"])
+        self.assertEqual([(r["gtm_persona"], r["gtm_persona_source"]) for r in rows],
+                         [("controller", "listed title"), ("finance-ops-manager", "title regex"), ("", "none"), ("", "none")])
+        self.assertEqual(rows[0]["gtm_icp"], "mid-market-finance-team")
+        self.assertEqual(rows[0]["gtm_offering"], "close-platform")
+
+    def test_classifier_fills_the_gaps_and_leaves_the_unsure_alone(self):
+        answers = {"Head of Accounting Systems": ("controller", 0.95), "Chief Vibes Officer": ("none", 0.4)}
+        orig = g.place_with_jev
+        g.place_with_jev = lambda items, people, cands, key=None: {k: (None if answers.get(t, ("none", 0))[0] == "none" else answers[t][0], answers.get(t, ("", 0.0))[1]) for k, t, _ in people}
+        try:
+            g.label(g.load(self.r.lib)[0], self.leads, "close-platform", "Title", "Employee Size", "Industry",
+                    "Annual Revenues", os.path.join(self.r.root, "out.csv"), "jev", None)
+        finally:
+            g.place_with_jev = orig
+        rows = self.rows(os.path.join(self.r.root, "out.csv"))
+        self.assertEqual([(r["gtm_persona"], r["gtm_persona_source"]) for r in rows],
+                         [("controller", "listed title"), ("controller", "classifier"), ("", "unsure"), ("", "none")])
+        self.assertEqual(rows[1]["gtm_persona_confidence"], "0.95")
+
+    def test_an_unreachable_classifier_still_labels_with_the_rules(self):
+        orig = g.place_with_jev
+        def boom(*a, **k):
+            raise g.JevUnavailable("couldn't reach Jev (blocked)")
+        g.place_with_jev = boom
+        try:
+            g.label(g.load(self.r.lib)[0], self.leads, "close-platform", "Title", "Employee Size", "Industry",
+                    "Annual Revenues", os.path.join(self.r.root, "out.csv"), "jev", None)
+        finally:
+            g.place_with_jev = orig
+        rows = self.rows(os.path.join(self.r.root, "out.csv"))
+        self.assertEqual(rows[1]["gtm_persona_source"], "title regex")
 
 
 class Dashboard(unittest.TestCase):
