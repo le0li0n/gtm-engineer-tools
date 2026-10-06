@@ -176,26 +176,36 @@ def add_box(slide, it):
     s.name = "Box"
     return s
 
-def text_span(it, slide_w=common.W):
+def text_span(it, slide_w=common.W, boxes=()):
     """(x, width) for a text box. Text that doesn't wrap in the browser gets room to spare:
     Google Slides wraps even a wrap="none" box at its width on import, and sets text wider than
     Chrome does (no letter spacing, bold for black, its own metrics), so a box cut to the glyphs
-    rewraps. The box grows away from its alignment edge, as far as the slide allows."""
+    rewraps. The box grows away from its alignment edge, as far as the slide allows, or as far
+    as the card the text sits in: a box that spans the slide is a nightmare to click on when
+    twelve cards sit side by side, and every one of them overlaps the rest."""
     x, w = it["x"], max(it["w"], 1)
     if it.get("wrap"): return x, w
+    lo, hi = 0.0, slide_w
+    inside = [b for b in boxes
+              if b["x"] <= x + 1 and b["x"] + b["w"] >= x + w - 1
+              and b["y"] <= it["y"] + 1 and b["y"] + b["h"] >= it["y"] + it["h"] - 1
+              and b["w"] < slide_w * 0.9]
+    if inside:
+        card = min(inside, key=lambda b: b["w"] * b["h"])
+        lo, hi = card["x"], card["x"] + card["w"]
     align = it.get("align")
     if align == "center":
-        room = max(0.0, min(x, slide_w - (x + w)))
+        room = max(0.0, min(x - lo, hi - (x + w)))
         return x - room, w + 2 * room
     if align == "right":
-        return 0.0, max(w, x + w)
-    return x, max(w, slide_w - x)
+        return lo, max(w, x + w - lo)
+    return x, max(w, hi - x)
 
-def add_text(slide, it, brand):
+def add_text(slide, it, brand, boxes=()):
     from pptx.util import Pt
     from pptx.enum.text import PP_ALIGN, MSO_ANCHOR, MSO_AUTO_SIZE
     from pptx.oxml.ns import qn
-    bx, bw = text_span(it)
+    bx, bw = text_span(it, boxes=boxes)
     tb = slide.shapes.add_textbox(px(bx), px(it["y"]), px(bw), px(max(it["h"], 1)))
     tf = tb.text_frame
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
@@ -294,10 +304,11 @@ def export(deck_json, version="mainstage", out=None, treat=None, save=False):
                     fx = common.screenshot(chrome, st.url(file_rel, n, "effects"), work / f"{n:02d}-effects.png", transparent=True, scale=RENDER_SCALE)
                     if fx:
                         p = slide.shapes.add_picture(str(fx), 0, 0, prs.slide_width, prs.slide_height); p.name = "Effects — glows and shadows (picture)"
+                boxes = [b for b in model["items"] if b["type"] == "box"]
                 for it in model["items"]:
                     try:
                         if it["type"] == "box": add_box(slide, it)
-                        elif it["type"] == "text": add_text(slide, it, brand)
+                        elif it["type"] == "text": add_text(slide, it, brand, boxes)
                         elif it["type"] == "image": add_image(slide, it)
                         elif it["type"] == "raster" and raw:
                             p = slide.shapes.add_picture(crop_png(raw, it["x"], it["y"], it["w"], it["h"], scale=RENDER_SCALE), px(it["x"]), px(it["y"]), px(it["w"]), px(it["h"]))
